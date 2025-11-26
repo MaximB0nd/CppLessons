@@ -7,4 +7,5 @@ add_executable(CppLessons main.cpp
         Types.h
         Iostream.h
         ByteOperations.h
-        SwitchCase.h)
+        SwitchCase.h
+        References.h)

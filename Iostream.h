@@ -23,6 +23,10 @@ class Iostream {
 		ullong c { static_cast<ullong>(b) };
 		c = { (ullong)b };
 
+		char collection[20];
+
+		cin.getline(collection, 20, '1');
+
 	}
 };
 
