@@ -27,6 +27,10 @@ class Iostream {
 
 		cin.getline(collection, 20, '1');
 
+		std::string text;
+
+		getline(std::cin, text);
+
 	}
 };
 
