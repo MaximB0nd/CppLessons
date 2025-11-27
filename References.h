@@ -37,6 +37,20 @@ public:
 		*const_usable_ref = 5;
 
 		const int* const unchangeble_ref { &a };
+
+		int nums[] {1, 2, 3, 4, 5};
+		*(nums + 1) = 2;
+
+		char text[] { "hello" };
+		char* ref_text { text };
+
+		char copy_char { *text };
+		const char title[] { "some text "};
+		const char* copy_title { title };
+		//*copy_title = 'a';
+
+		char* char_mass[] { "C++", "Java", "Swift" };
+
 	}
 };
 
