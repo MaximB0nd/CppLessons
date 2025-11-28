@@ -56,6 +56,22 @@ class Functions {
 	static void decrement(int* const number) {
 		(*number)++;
 	}
+
+	static void print_collection() {
+		int collection[] { 1, 2, 3, 4, 5 };
+		int* start { std::begin(collection) };
+		int* end { std::end(collection) };
+		start; // first
+		end; // the next after last
+	}
+
+	static void print_collection(int collection[], const size_t size) {
+		//collection[1] = 1;
+	}
+
+	static void print(int mass1[]); //=
+	static void print(int* mass2); //=
+	static void print(int (&mass3)[4]);
 };
 
 #endif //CPPLESSONS_FUNCTIONS_H
