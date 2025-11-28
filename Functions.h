@@ -70,8 +70,32 @@ class Functions {
 	}
 
 	static void print(int mass1[]); //=
-	static void print(int* mass2); //=
+	//static void print(int* mass2); //=
 	static void print(int (&mass3)[4]);
+
+	static int* max(int& num1, int& num2) {
+		if (num1 > num2) {
+			return &num1;
+		} else {
+			return &num2;
+		}
+	}
+
+	static int* max(int* num1, int* num2) {
+		if (*num1 > *num2) {
+			return num1;
+		} else {
+			return num2;
+		}
+	}
+
+	static void check_max() {
+		int num1 { 3 };
+		int num2 { 2 };
+
+		std::cout << *Functions::max(num1, num2) << std::endl;
+	}
+
 };
 
 #endif //CPPLESSONS_FUNCTIONS_H
