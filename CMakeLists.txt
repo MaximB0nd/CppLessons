@@ -12,4 +12,6 @@ add_executable(CppLessons main.cpp
         Functions.h
         sum.cpp
         sum.h
-        information.h)
+        some_variables.cpp
+        objects.h
+)
