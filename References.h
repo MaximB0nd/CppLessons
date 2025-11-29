@@ -33,6 +33,30 @@ private:
 		return a + b;
 	}
 
+	static int (*oper(int num))(int, int) {
+		if (num == 1) {
+			return plus;
+		}
+		return minus;
+	};
+
+	static char* (*gretting(unsigned hour))(char*) {
+		if (hour > 10) {
+			return morning;
+		}
+		return evening;
+	}
+
+	static char* morning(char* sender) {
+		char* message[] { "good morning" };
+		return *message;
+	}
+
+	static char* evening(char* sender) {
+		char* message[] { "good evening" };
+		return *message;
+	}
+
 	static void testFunctionReferences() {
 		void (*message)() { nullptr };
 		{
@@ -45,6 +69,13 @@ private:
 
 		operation(plus, 1, 2);
 		operation(minus, 2, 3);
+
+		char* (*gritting)(char*) { gretting(3) };
+		char* (*grittings)(char*) { gretting(20) };
+
+		cout << grittings("asd");
+		cout << gritting("asd");
+
 	}
 
 public:
