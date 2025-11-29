@@ -14,4 +14,5 @@ add_executable(CppLessons main.cpp
         sum.h
         some_variables.cpp
         objects.h
+        SmartReferences.h
 )
