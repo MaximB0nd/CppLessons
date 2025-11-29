@@ -9,4 +9,7 @@ add_executable(CppLessons main.cpp
         ByteOperations.h
         SwitchCase.h
         References.h
-        Functions.h)
+        Functions.h
+        sum.cpp
+        sum.h
+        information.h)
