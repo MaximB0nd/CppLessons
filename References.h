@@ -7,8 +7,48 @@
 #include <iostream>
 #include <ostream>
 
+using std::cout;
+using action = int(*)(int, int);
+
 class References {
+private:
+
+	static void hello() {
+		cout << "hello" << std::endl;
+	}
+
+	static void bye() {
+		cout << "bye" << std::endl;
+	}
+
+	static int operation(action oper, const int a, int const b) {
+		return oper(a, b);
+	}
+
+	static int minus(int a, int b) {
+		return a - b;
+	}
+
+	static int plus(int a, int b) {
+		return a + b;
+	}
+
+	static void testFunctionReferences() {
+		void (*message)() { nullptr };
+		{
+			auto* message { hello };
+		}
+		message=hello;
+		(*message)();
+		message=bye;
+		message();
+
+		operation(plus, 1, 2);
+		operation(minus, 2, 3);
+	}
+
 public:
+
 	static void info() {
 		int a { 3 };
 		int& ref_value_a { a };
@@ -51,6 +91,10 @@ public:
 
 		char* char_mass[] { "C++", "Java", "Swift" };
 
+		void (*mass_functions[3]) () { testFunctionReferences, hello, bye };
+		for (size_t i { 0 }; i < std::size(mass_functions); i++) {
+			mass_functions[i]();
+		}
 	}
 };
 

@@ -96,6 +96,44 @@ class Functions {
 		std::cout << *Functions::max(num1, num2) << std::endl;
 	}
 
+	static int factorial(int n) {
+		if (n == 0) {
+			return 1;
+		} else {
+			return n * factorial(n - 1);
+		}
+	}
+
+	static void sort(int mass[], size_t start, size_t end) {
+		if (start >= end) {
+			return;
+		}
+
+		size_t current { start };
+
+		for (size_t i { start + 1}; i < end; i++) {
+			if (mass[i] < mass[start]) {
+				current++;
+				swap(mass, current, i);
+			}
+		}
+
+		swap(mass, start, current);
+
+		if ( start < current ) {
+			sort(mass, start, current - 1);
+		}
+
+		if (end > current + 1 ) {
+			sort(mass, end, current + 1);
+		}
+	}
+
+	static void swap(int mass[], size_t first, size_t second) {
+		auto temp { mass[first] };
+		mass[first] = mass[second];
+		mass[second] = temp;
+	}
 };
 
 #endif //CPPLESSONS_FUNCTIONS_H
