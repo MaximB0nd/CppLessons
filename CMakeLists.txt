@@ -16,4 +16,5 @@ add_executable(CppLessons main.cpp
         objects.h
         SmartReferences.h
         String.h
+        Student.h
 )
