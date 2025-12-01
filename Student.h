@@ -21,24 +21,45 @@ public:
 		this->data = new char[10];
 	}
 
-	Student(Student&& other) noexcept : name(other.name), age(other.age), marks(other.marks) {
-		this->data = other.data;
-		this->name = other.name;
-		this->age = other.age;
-		this->marks = other.marks;
-		this->data = new char[10];
-
-		delete [] other.data;
-		other.data = nullptr;
-		other.marks.clear();
-		other.name.clear();
+	Student(const Student& other) noexcept :
+		name(other.name),
+		age(other.age),
+		marks(other.marks) {
+		if (other.data) {
+			data = new char[10];
+		} else {
+			data = nullptr;
+		}
 	}
 
-	Student& operator=(Student&& student) {
-		delete [] data;
-		name = student.name;
-		age = student.age;
-		marks = student.marks;
+	Student& operator=(const Student& other) {
+		if (this != &other) {
+			delete [] data;
+			name = other.name;
+			age = other.age;
+			marks = other.marks;
+			data = new char[10];
+			return *this;
+		}
+		return *this;
+	}
+
+	Student(Student&& other) noexcept : name(other.name), age(other.age), marks(other.marks) {
+        delete [] other.data;
+		other.data = nullptr;
+		data = new char[10];
+	}
+
+	Student& operator=(Student&& other) noexcept {
+		if (this != &other) {
+			name = other.name;
+			age = other.age;
+			marks = other.marks;
+			delete [] data;
+			other.data = nullptr;
+			data = new char [10];
+		}
+
 		return *this;
 	}
 
