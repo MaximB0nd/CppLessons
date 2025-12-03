@@ -21,6 +21,10 @@ public:
 		this->data = new char[10];
 	}
 
+	~Student() {
+		delete [] data;
+	}
+
 	Student(const Student& other) noexcept :
 		name(other.name),
 		age(other.age),
